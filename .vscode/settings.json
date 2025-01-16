@@ -1,0 +1,28 @@
+{
+  "vue.autoInsert.dotValue": true,
+  "editor.tabSize": 2,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[ts]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[js]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.env.dev": "$(capture).env.*",
+    "README.md": "README*,CHANGELOG*,LICENSE,CNAME",
+    "package.json": "pnpm-lock.yaml,package-lock.json",
+    ".gitignore": ".prettierrc,.prettierignore,.editorconfig,.eslintrc-auto-import.json",
+    "main.ts": "auto-import.d.ts,components.d.ts,vite-env.d.ts"
+  }
+}

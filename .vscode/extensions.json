@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "vue.volar",
+    "ant-design-vue.vscode-ant-design-vue-helper"
+  ]
+}
