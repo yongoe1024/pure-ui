@@ -25,7 +25,6 @@
 import Sider from './sider.vue'
 import Header from './header.vue'
 import Footer from './footer.vue'
-import { useUserStore } from '@/store/modules/user'
 
 const collapsed = ref<boolean>(false)
 const showContent = ref<boolean>(true)

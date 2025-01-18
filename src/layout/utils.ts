@@ -1,5 +1,3 @@
-import { useSettingStore } from '@/store/modules/setting'
-
 export default function useHooks() {
   const settingStore = useSettingStore()
   const fullScreen = ref<boolean>(false)

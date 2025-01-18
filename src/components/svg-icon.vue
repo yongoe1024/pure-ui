@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useSettingStore } from '@/store/modules/setting'
 const settingStore = useSettingStore()
 /**
  * 输入属性             类型                默认值              是否必选                描述

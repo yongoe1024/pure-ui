@@ -1,4 +1,3 @@
-import { userApi } from '@/api/system/user'
 import { h } from 'vue'
 import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
@@ -7,6 +6,7 @@ import * as Icons from '@ant-design/icons-vue'
 import router from '@/router/index'
 import type { Menu } from '../type'
 import { generateTree } from '../utils'
+import { userinfoApi } from '@/api/userinfo'
 
 const viteModules = import.meta.glob('@/views/**/*.vue')
 const IconData: Record<string, Component> = Icons
@@ -20,10 +20,11 @@ export const useMenuStore = defineStore('menu', () => {
       return
     }
     loading.value = true
-    const res: Menu[] = await userApi.getMenu()
+    const res: Menu[] = await userinfoApi.getMenu()
     // 格式化菜单
     const menuData = generateTree(res, '0', 'menuId', 'parentId', 'children') as Menu[]
     menus.value = formatMenus(menuData)
+
     // 格式化路由
     const routeData = generateTree(res, '0', 'menuId', 'parentId', 'children') as Menu[]
     formatRoutes(routeData).forEach((route: any) => {
@@ -91,6 +92,7 @@ const formatRoutes = (list: Menu[]): RouteRecordRaw[] => {
     const routeItem: any = {
       path: item.path,
       children: [],
+      name: item.name,
       meta: {
         perms: [],
         query: item.query,
@@ -102,7 +104,7 @@ const formatRoutes = (list: Menu[]): RouteRecordRaw[] => {
       }
     }
     if (item.component) {
-      routeItem.name = item.name
+      // routeItem.name = item.name
       routeItem.component = viteModules['/src/views' + item.component + '.vue']
     }
     if (item.menuType === '3') {

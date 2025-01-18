@@ -1,8 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css' //这个样式必须引入
-import { useMenuStore } from '@/store/modules/menu'
 import { baseRoutes } from './data'
+import { isPathMatch } from './utils'
 
 // 隐藏加载logo
 NProgress.configure({ showSpinner: false })
@@ -12,6 +12,12 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes: baseRoutes
 })
+
+const whiteList = ['/login', '/register']
+
+const isWhiteList = path => {
+  return whiteList.some(pattern => isPathMatch(pattern, path))
+}
 
 // 路由前置守卫
 router.beforeEach(async (to, _from, next) => {
@@ -39,7 +45,8 @@ router.beforeEach(async (to, _from, next) => {
     }
   } else {
     // 未登录
-    if (to.path === '/login') {
+    if (isWhiteList(to.path)) {
+      // 在免登录白名单，直接进入
       next()
     } else {
       next({ path: '/login' })

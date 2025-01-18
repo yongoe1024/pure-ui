@@ -2,19 +2,28 @@ import request from '@/utils/request'
 
 export const userApi = {
   /**
-   * 获取当前登录用户信息
+   * 分页查询
    */
-  getUserInfo: () => request.get('/system/userinfo/info'),
+  page: query => request.get('/system/user/page', query),
+
   /**
-   * 修改个人信息
+   * 添加
    */
-  updateUserInfo: () => request.put('/system/userinfo/update'),
+  add: user => request.post('/system/user/add', user),
+
   /**
    * 修改密码
    */
-  updatePassword: () => request.put('/system/userinfo/password'),
+  updatePassword: (userId, newPassword) =>
+    request.post(`/system/user/update/password?userId=${userId}&newPassword=${newPassword}`),
+
   /**
-   * 查询个人菜单
+   * 修改用户
    */
-  getMenu: () => request.get('/system/userinfo/menu')
+  update: user => request.post('/system/user/update', user),
+
+  /**
+   * 删除 - 关联删除 ‘用户岗位’和‘用户角色’
+   */
+  delete: (ids: number[]) => request.post('/system/user/delete/' + ids)
 }

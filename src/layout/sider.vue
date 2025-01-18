@@ -19,9 +19,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useMenuStore } from '@/store/modules/menu'
-import { MenuProps } from 'ant-design-vue'
-
 const collapsed = inject('collapsed')
 const userMenu = useMenuStore()
 
@@ -39,8 +36,6 @@ watchEffect(() => {
 })
 
 const token = ref({})
-import { useSettingStore } from '@/store/modules/setting'
-import { storeToRefs } from 'pinia'
 const { setting } = storeToRefs(useSettingStore())
 // 主题
 watch(

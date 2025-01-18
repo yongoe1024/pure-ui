@@ -18,7 +18,6 @@
 </template>
 
 <script lang="ts" setup name="Home">
-import { useUserStore } from '@/store/modules/user'
 const userStore = useUserStore()
 
 /**

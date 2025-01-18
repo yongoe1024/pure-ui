@@ -1,12 +1,12 @@
-import { userApi } from '@/api/system/user'
 import { defineStore } from 'pinia'
 import type { User } from '../type'
+import { userinfoApi } from '@/api/userinfo'
 
 export const useUserStore = defineStore('user', () => {
   const user = ref<User>({} as User)
 
   async function init() {
-    const userinfo = await userApi.getUserInfo()
+    const userinfo = await userinfoApi.getUserInfo()
     user.value = userinfo
   }
 

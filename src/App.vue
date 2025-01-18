@@ -14,7 +14,6 @@ import enUS from 'ant-design-vue/es/locale/en_US'
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import { storeToRefs } from 'pinia'
 import dayjs from 'dayjs'
-import { useSettingStore } from '@/store/modules/setting'
 
 // 系统配置：语言、主题
 const { setting } = storeToRefs(useSettingStore())

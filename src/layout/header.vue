@@ -46,9 +46,7 @@
 <script lang="ts" setup>
 import { RedoOutlined, FullscreenOutlined, FullscreenExitOutlined } from '@ant-design/icons-vue'
 import { h } from 'vue'
-import { useSettingStore } from '@/store/modules/setting'
 import useHooks from './utils'
-import { useUserStore } from '@/store/modules/user'
 
 const userStore = useUserStore()
 const settingStore = useSettingStore()

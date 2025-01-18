@@ -23,8 +23,9 @@ export default defineConfig({
       eslintrc: {
         enabled: false
       },
-      imports: ['vue', 'vue-router'],
-      dts: 'src/auto-import.d.ts'
+      imports: ['vue', 'vue-router', 'pinia'],
+      dts: 'src/auto-import.d.ts',
+      dirs: ['src/store/modules']
     }),
     // 组件自动注册插件
     Components({
